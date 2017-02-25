@@ -9,6 +9,7 @@
         margin: 0;
         padding: 0;
         font-size: 100%;
+        user-select: none;
       }
       body.mobile-ui {
         font-size: 75%;
@@ -18,9 +19,8 @@
         width: 100%;
       }
       #page1 {
-        color: white;
+        color: #ccc;
         background-color: black;
-        user-select: none;
       }
       #model {
         position: absolute;
@@ -39,7 +39,7 @@
         font-size: 400%;
         transform: translateX(-50%);
       }
-      #desp {
+      #label {
         position: absolute;
         left: 65%;
         bottom: 20%;
@@ -53,6 +53,63 @@
         max-width: 50px;
         transform: translateX(-50%);
         animation: arrow 4s ease-in-out infinite;
+      }
+      #page2 {
+        background-image: url(img/background.jpg);
+        overflow: hidden;
+      }
+      #nav {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 25%;
+        transform: translate(-50%, -50%);
+      }
+      #nav > a {
+        position: absolute;
+        display: inline-block;
+        border: thick solid black;
+        height: 100%;
+        width: 20%;
+        transform: translateX(-50%);
+      }
+      #about {
+        left: 20%;
+      }
+      #download {
+        left: 50%;
+      }
+      #donate {
+        left: 80%;
+      }
+      .head {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 300%;
+        transform: translateY(-120%);
+      }
+      .tail {
+        position: absolute;
+        left: 4.5em;
+        top: 0;
+        font-size: 150%;
+        transform: translateY(-120%);
+      }
+      .deco {
+        position: absolute;
+        left: .5em;
+        top: 0;
+        color: #666;
+        font-family: "Microsoft YaHei";
+        font-weight: 900;
+        font-size: 200%;
+      }
+      .desp {
+        position: absolute;
+        bottom: 0;
+        right: .5em;
       }
       @keyframes arrow {
         0% {
@@ -76,7 +133,7 @@
           Array.prototype.slice.call(
             document.querySelectorAll("body > section")
           ).forEach((ele) => (ele.style.height = `${window.innerHeight}px`));
-          if (window.innerWidth <= 800)
+          if (window.innerWidth < 600)
             document.body.classList.add("mobile-ui");
           else
             document.body.classList.remove("mobile-ui");
@@ -85,7 +142,7 @@
         window.addEventListener("resize", resizeHandle);
       });
       $ready(() => { // Scrolling Animation
-        const speed = 10;
+        const speed = 25;
         let scrolling = 0;
         let pos = Math.round(document.body.scrollTop / window.innerHeight);
         document.addEventListener("scroll", () => {
@@ -100,7 +157,7 @@
             document.body.scrollTop = pos * window.innerHeight;
             clearInterval(timer);
             setTimeout(() => (scrolling = 0), 50);
-          }, 5);
+          }, 10);
         });
       });
     </script>
@@ -109,10 +166,44 @@
     <section id="page1" data-pageid="1">
       <img src="img/model.png" id="model" />
       <h1 id="title">DRONE V1.0</h1>
-      <span id="desp">在此</span>
+      <span id="label">在此</span>
       <img src="img/arrow.png" id="arrow" />
     </section>
     <section id="page2" data-pageid="2">
+      <nav id="nav">
+        <a id="about">
+          <span class="head">关于</span>
+          <span class="tail">About</span>
+          <span class="deco">Real Man</span>
+          <p class="desp">
+            获取关于我们的团队
+            <br />
+            或许是我们所知道的一切
+          </p>
+        </a>
+        <a id="download">
+          <span class="head">下载</span>
+          <span class="tail">Download</span>
+          <span class="deco">Real Tech</span>
+          <p class="desp">
+            获取关于我们的项目
+            <br />
+            或许是开源所给予的一切
+          </p>
+        </a>
+        <a id="donate">
+          <span class="head">捐赠</span>
+          <span class="tail">Donate</span>
+          <span class="deco">Real Worth</span>
+          <p class="desp">
+            获取关于我们的需求
+            <br />
+            或许是研发所需要的一切
+          </p>
+        </a>
+      </nav>
+      <footer>
+      </footer>
     </section>
   </body>
 </html>

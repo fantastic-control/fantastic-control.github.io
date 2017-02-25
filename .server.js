@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const port = 80;
-const defaultPath = "home/.origin/";
+const defaultPath = "./home/origin/";
 
 const writeError = function (response, code, name) {
   response.statusCode = code;
