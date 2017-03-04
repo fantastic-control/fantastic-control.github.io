@@ -47,13 +47,13 @@ const server = http.createServer((request, response) => {
   }
   else {
     let body = [];
-    request.on("error", function (err) {
-      console.error(err);
-    }).on("data", function (chunk) {
+    request.on("data", (chunk) => {
       body.push(chunk);
-    }).on("end", function () {
+    }).on("end", () => {
       body = Buffer.concat(body).toString();
       writeError(response, 405, "Method Not Allowed");
+    }).on("error", () => {
+      writeError(response, 500, "Internal Server Error");
     });
   }
 });

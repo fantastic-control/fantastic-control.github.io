@@ -9,10 +9,8 @@
         margin: 0;
         padding: 0;
         font-size: 100%;
+        font-family: "Microsoft YaHei";
         user-select: none;
-      }
-      body.mobile-ui {
-        font-size: 75%;
       }
       section {
         position: relative;
@@ -102,7 +100,6 @@
         left: .5em;
         top: 0;
         color: #666;
-        font-family: "Microsoft YaHei";
         font-weight: 900;
         font-size: 200%;
       }
@@ -110,6 +107,11 @@
         position: absolute;
         bottom: 0;
         right: .5em;
+      }
+      @media (max-width: 600px) {
+        body {
+          font-size: 75%;
+        }
       }
       @keyframes arrow {
         0% {
@@ -133,10 +135,6 @@
           Array.prototype.slice.call(
             document.querySelectorAll("body > section")
           ).forEach((ele) => (ele.style.height = `${window.innerHeight}px`));
-          if (window.innerWidth < 600)
-            document.body.classList.add("mobile-ui");
-          else
-            document.body.classList.remove("mobile-ui");
         });
         resizeHandle();
         window.addEventListener("resize", resizeHandle);
