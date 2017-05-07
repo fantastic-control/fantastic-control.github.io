@@ -13,7 +13,15 @@
         user-select: none;
       }
       section {
+        position: static;
+        width: 100%;
+        height: 100%;
+      }
+      section > main {
         position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
         width: 100%;
       }
       #page1 {
@@ -81,6 +89,14 @@
       #donate {
         left: 80%;
       }
+      #page2 > main > footer {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        width: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+      }
       .head {
         position: absolute;
         left: 0;
@@ -126,11 +142,11 @@
       }
     </style>
     <script>
-      window.$ready = function (func) { // Initialize
+      window.$ready = function (func) {
         if (document.readyState != "loading") func();
         else document.addEventListener("DOMContentLoaded", func);
       };
-      $ready(() => { // Resizing
+      $ready(() => {
         const resizeHandle = (() => {
           Array.prototype.slice.call(
             document.querySelectorAll("body > section")
@@ -162,46 +178,59 @@
   </head>
   <body>
     <section id="page1" data-pageid="1">
-      <img src="img/model.png" id="model" />
-      <h1 id="title">DRONE V1.0</h1>
-      <span id="label">在此</span>
-      <img src="img/arrow.png" id="arrow" />
+      <main>
+        <img src="img/model.png" id="model" />
+        <h1 id="title">DRONE V1.0</h1>
+        <span id="label">在此</span>
+      </main>
+      <footer>
+        <img src="img/arrow.png" id="arrow" />
+      </footer>
     </section>
     <section id="page2" data-pageid="2">
-      <nav id="nav">
-        <a id="about">
-          <span class="head">关于</span>
-          <span class="tail">About</span>
-          <span class="deco">Real Man</span>
-          <p class="desp">
-            获取关于我们的团队
+      <main>
+        <nav id="nav">
+          <a id="about">
+            <span class="head">关于</span>
+            <span class="tail">About</span>
+            <span class="deco">Real Man</span>
+            <p class="desp">
+              获取关于我们的团队
+              <br />
+              或许是我们所知道的一切
+            </p>
+          </a>
+          <a id="download">
+            <span class="head">下载</span>
+            <span class="tail">Download</span>
+            <span class="deco">Real Tech</span>
+            <p class="desp">
+              获取关于我们的项目
+              <br />
+              或许是开源所给予的一切
+            </p>
+          </a>
+          <a id="donate">
+            <span class="head">捐赠</span>
+            <span class="tail">Donate</span>
+            <span class="deco">Real Worth</span>
+            <p class="desp">
+              获取关于我们的需求
+              <br />
+              或许是研发所需要的一切
+            </p>
+          </a>
+        </nav>
+        <footer>
+          <span>
+            Designed by Fantastic Control
             <br />
-            或许是我们所知道的一切
-          </p>
-        </a>
-        <a id="download">
-          <span class="head">下载</span>
-          <span class="tail">Download</span>
-          <span class="deco">Real Tech</span>
-          <p class="desp">
-            获取关于我们的项目
+            Fantastic Control 2017
             <br />
-            或许是开源所给予的一切
-          </p>
-        </a>
-        <a id="donate">
-          <span class="head">捐赠</span>
-          <span class="tail">Donate</span>
-          <span class="deco">Real Worth</span>
-          <p class="desp">
-            获取关于我们的需求
-            <br />
-            或许是研发所需要的一切
-          </p>
-        </a>
-      </nav>
-      <footer>
-      </footer>
+            中国智造
+          </span>
+        </footer>
+      </main>
     </section>
   </body>
 </html>
