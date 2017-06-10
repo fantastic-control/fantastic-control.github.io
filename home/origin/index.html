@@ -60,6 +60,14 @@
         transform: translateX(-50%);
         animation: arrow 4s ease-in-out infinite;
       }
+      #bottom-line {
+        position: absolute;
+        top: 65%;
+        height: 5%;
+        left: 20%;
+        width: 60%;
+        box-shadow: 0 0 10% 5% #333;
+      }
       #page2 {
         background-image: url(img/background.jpg);
         overflow: hidden;
@@ -179,6 +187,7 @@
   <body>
     <section id="page1" data-pageid="1">
       <main>
+        <div id="bottom-line"></div>
         <img src="img/model.png" id="model" />
         <h1 id="title">DRONE V1.0</h1>
         <span id="label">在此</span>
